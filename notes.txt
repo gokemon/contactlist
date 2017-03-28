@@ -1,2 +1,6 @@
 
 // https://devcenter.heroku.com/articles/mean-apps-restful-api#create-a-new-app
+
+https://ancient-hamlet-69106.herokuapp.com/
+
+ curl -H "Content-Type: application/json" -d '{"name":"Gokester Eats blog", "email": "michael@gokemon.xyz"}' https://ancient-hamlet-69106.herokuapp.com/api/contacts

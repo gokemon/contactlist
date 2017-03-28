@@ -71,14 +71,41 @@ app.post("/api/contacts", function(req, res) {
 
 /* GET route find contact by id */
 app.get("/api/contacts/:id", function(req, res) {
-});
+  db.collection(CONTACTS_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to get contact");
+    } else {
+      res.status(200).json(doc);
+    }
+  });
+});// GET
+
 
 /* PUT route updates contact by id */
 app.put("/api/contacts/:id", function(req, res) {
-});
+  var updateDoc = req.body;
+  delete updateDoc._id;
+
+  db.collection(CONTACTS_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to update contact");
+    } else {
+      updateDoc._id = req.params.id;
+      res.status(200).json(updateDoc);
+    }
+  });
+});//PUT
+
 
 /* DELETE route deletes contact by id */
 app.delete("/api/contacts/:id", function(req, res) {
-});
+  db.collection(CONTACTS_COLLECTION).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
+    if (err) {
+      handleError(res, err.message, "Failed to delete contact");
+    } else {
+      res.status(200).json(req.params.id);
+    }
+  });
+});// delete
 // end of ROUTES
 
