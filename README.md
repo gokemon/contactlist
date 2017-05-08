@@ -1,5 +1,9 @@
 # Contactlist
 
+https://ancient-hamlet-69106.herokuapp.com/ (live working version with back-end)
+https://gokemon.github.io/contactlist/ (just the angular front-end)
+
+
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
 
 ## Development server
